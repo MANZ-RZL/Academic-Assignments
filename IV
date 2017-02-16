@@ -1,0 +1,118 @@
+A) Explain in detail about storage class. Write in detail about 4 different storage class.
+Storage Class
+In C language, each variable has a storage class which decides scope, visibility and lifetime of that variable. The following storage classes are most used in C programming,
+1. Automatic variables
+2. External variables
+3. Static variables
+4. Register variables
+1. Automatic variables
+A variable declared inside a function without any storage class specification, is by default an automatic variable. They are created when a function is called and destroyed automatically when the function  exists. Automatic variables can also be called local variables because they are local to a function. By default they are assigned garbage value by the compiler.
+2. External variables
+A variable that is declared outside any function is a Global variable. Global variables remain available throughout the entire program. One important thing to remember about global variable is that their values can be changed by any function in the program.
+3. Static variables
+A static variable tells the compiler to persist the variable until the end of program. Instead of creating and destroying a variable every time when it comes into and goes out of scope, static is initialized only once and remains into existence till the end of program. A static variable can either be internal or external depending upon the place of declaraction. Scope of internal static variable remains inside the function in which it is defined. External static variables remain restricted to scope of file in each they are declared. They are assigned 0 (zero) as default value by the compiler.
+4. Register variable
+Register variable inform the compiler to store the variable in register instead of memory. Register variable has faster access than normal variable. Frequently used variables are kept in register. Only few variables can be placed inside register.
+
+B) Write one simple example of while-loop. Explain about the steps how it works.
+Answer
+A while loop in C programming repeatedly executes a target statement as long as a given condition is true.
+Example: 
+#include <stdio.h>
+int main(){
+/* local variable defination */
+int a=10;
+/*while loop execution*/
+while(a<20){
+	printf(“value of a: %d\n”,a);
+	a++;
+}
+return 0;
+}
+C) Write one simple example of for-loop. Explain about the steps how it works.
+Answer
+The for loop is entry-controlled loop that provides a more concise loop structure .
+Example :
+#include <stdio.h>
+int main(){
+int n,sum=0;
+for (n=1;n<=10;n=n+1)
+{sum = sum + n;
+}
+printf("sum=%d",sum);
+return 0;
+} 
+D) Write a paragraph and an example of each about strlen(), strcpy(), strcat(), strcmp(), strrev().
+Ans:
+Strlen()
+The function counts and returns the number of characters in a string. It takes the form n = strlen(string);  Where n is an integer variable, which receives the value of the length of the string. The argument may be a string constant. The counting ends at the first null character.
+#include <stdio.h>
+#include <string.h>
+int main()
+{
+    char a[20]="Program";
+    char b[20]={'P','r','o','g','r','a','m','\0'};
+    char c[20];
+
+    printf("Enter string: ");
+    gets(c);
+
+    printf("Length of string a = %d \n",strlen(a));
+
+    //calculates the length of string before null charcter.
+    printf("Length of string b = %d \n",strlen(b));
+    printf("Length of string c = %d \n",strlen(c));
+
+    return 0;
+}
+Strcpy()
+The strcpy() function works almost like a string-assignment operator. It takes the form: strcpy(sting1,sting2); and assigns the content of string2 to sting1. String2 may be a character array variable or a string constant. For example, the statement strcpy(city, “KTM”); will assign the sting “KTM” to the string variable city. Similarly, the statement strcpy(city1, city2); will assign the contents of the string variable city2 to the string variable city1. The size of the array city1 should be large enough to receive the contents of city2. 
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    char str1[10]= "awesome";
+    char str2[10];
+    char str3[10];
+
+    strcpy(str2, str1);
+    strcpy(str3, "well");
+    puts(str2);
+    puts(str3);
+
+    return 0;
+}
+strcat()
+The strcat() function joins two stings together. It takes the following form:  strcat(string1,sting2);  
+sting1 and string2 are character arrays. When the  function strcat is executed, string2 is attached to sting1. It does so by removing the null character at the end of string1 and placing string2 from there. The string at string2 remains unchanged. For example, consider the following three stings: 
+
+strcmp(),
+The strcmp function compares two strings identified by the arguments and has a value 0 if they are equal. If they are not, it has the numeric difference between the first nonmatching characters in the strings. It takes the form: strcmp(string1,string2);
+String1 and string2 may be the string variables or string constants. Examples are: strcmp(name1,name2); strcmp(name1,”Manoj”);  strcmp(“Raj”,”Raj”); Our major concern is to determine whether the strings are equal; if not, which is alphabetically above. The value of the mismatch is rarely important. For example, the statement  strcmp(“their”, ”there”);  will return a value of -9 which is the numeric difference between the ASCII “i” and ASCII “r”. That is “i” minus “r” in ASCII code is -9. If the value is negative, string1 is alphabetically above string2. 
+Strrev()
+strrev( ) function reverses a given string in C language. Syntax for strrev( ) function is given below.
+char *strrev(char *string);  strrev( ) function is non standard function which may not available in standard library in C. 
+Example program for strrev() function in C:
+In below program, string “Hello” is reversed using strrev( ) function and output is displayed as “olleH”.
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+	char name[30] = “Hello”;
+	printf(“string before strrev() : %s\n”,name);
+	printf(“string after strrev() : %s”,strrev(name));
+	return 0;
+} 
+E) What is array? How array is different from ordinary variable.
+An array is a fixed-sized sequenced collection of elements of the same data type. It is simply a grouping of like-type data. An array can be used to represent a list of numbers, or a list of names. Some examples where the concept of array can be used: 
+I. List of temperatures recorded every hour in a day, or a month, or a year.
+ii. List of employees in an organization.
+Iii. List of products and their cost sold by a store.
+iv. Test scores of a class of student.
+• Array is the set of an multiple values where as variable can store single value at a time.
+• The difference between the definition of array and ordinary variable is the, array is always declared, initialized, and accessed using subscript whereas ordinary variable do not have any subscript.
+• The syntax for ordinary variable definition is data_type v1, v2, ….;
+• And the syntax for array variable is data_type v1[N1],v2[N2],…; where v1,v2 are name of variable and N1, N2 are the integer constants indicating the maximum size of array.
+F) How can you prepare a student mark sheets software using the things you’ve learned till now? Give me the list of the things you’ve learned and how can you use it to do what kind of operation to prepare a mark sheet of a student.
+ 
